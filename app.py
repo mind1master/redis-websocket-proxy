@@ -29,6 +29,7 @@ class MainHandler(cyclone.websocket.WebSocketHandler):
     def connectionMade(self):
         log.msg("ws: someone connected")
         self.clients.append(self)
+        self.sendMessage("connected")
 
     def connectionLost(self, *args, **kwargs):
         log.msg('ws: someone disconnected')
